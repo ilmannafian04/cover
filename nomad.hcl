@@ -39,11 +39,11 @@ job "cover" {
         image = "ilmannafian/cover:${var.version}"
         ports = ["http"]
       }
-    }
 
-    resources {
-      cpu    = 10
-      memory = 10
+      resources {
+        cpu    = 10
+        memory = 10
+      }
     }
   }
 }
