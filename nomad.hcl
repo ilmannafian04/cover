@@ -7,7 +7,11 @@ job "cover" {
 
   group "cover" {
     network {
-      port "http" {}
+      mode = "bridge"
+
+      port "http" {
+        to = 80
+      }
     }
 
     service {
@@ -37,7 +41,6 @@ job "cover" {
       
       config {
         image = "ilmannafian/cover:${var.version}"
-        ports = ["http"]
       }
 
       resources {
