@@ -3,7 +3,7 @@ variable "version" {
 }
 
 job "cover" {
-  datacenters = ["ln-sg"]
+  datacenters = ["sg-ln"]
 
   group "cover" {
     network {
@@ -19,7 +19,7 @@ job "cover" {
       port = "http"
       tags = [
         "traefik.enable=true",
-        "traefik.http.routers.cover.rule=Host(`ilmannfn.com`)",
+        "traefik.http.routers.cover.rule=Host(`ilman.io`)",
         "traefik.http.routers.cover.entrypoints=websecure",
         "traefik.http.routers.cover.tls=true",
         "traefik.http.routers.cover.tls.certResolver=cloudflareResolver",
