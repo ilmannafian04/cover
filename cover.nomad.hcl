@@ -9,23 +9,26 @@ job "cover" {
     network {
       mode = "bridge"
 
-      port "http" {
-        to = 80
-      }
+      port "healthcheck" {}
     }
 
     service {
       name = "cover"
-      port = "http"
+      port = "80"
+
+      connect {
+        sidecar_service {}
+      }
 
       check {
         name = "Cover HTTP Check"
         type = "http"
-        port = "http"
+        port = "healthcheck"
         path = "/ping"
 
         interval = "30s"
         timeout  = "10s"
+        expose   = true
       }
     }
 
