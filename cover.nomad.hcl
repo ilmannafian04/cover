@@ -19,6 +19,13 @@ job "cover" {
 
       connect {
         sidecar_service {}
+
+        sidecar_task {
+          resources {
+            cpu    = 100
+            memory = 50
+          }
+        }
       }
 
       check {
