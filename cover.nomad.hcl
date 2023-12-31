@@ -3,7 +3,7 @@ variable "version" {
 }
 
 job "cover" {
-  datacenters = ["sg-ln"]
+  datacenters = ["id-dpk"]
 
   group "cover" {
     network {
@@ -17,13 +17,6 @@ job "cover" {
     service {
       name = "cover"
       port = "http"
-      tags = [
-        "traefik.enable=true",
-        "traefik.http.routers.cover.rule=Host(`ilman.io`)",
-        "traefik.http.routers.cover.entrypoints=websecure",
-        "traefik.http.routers.cover.tls=true",
-        "traefik.http.routers.cover.tls.certResolver=cloudflareResolver",
-      ]
 
       check {
         name = "Cover HTTP Check"
@@ -44,8 +37,8 @@ job "cover" {
       }
 
       resources {
-        cpu    = 10
-        memory = 10
+        cpu    = 50
+        memory = 20
       }
     }
   }
