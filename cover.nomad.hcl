@@ -3,6 +3,7 @@ variable "version" {
 }
 
 job "cover" {
+  region      = "id"
   datacenters = ["id-dpk"]
 
   group "cover" {
