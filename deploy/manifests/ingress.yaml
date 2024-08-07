@@ -20,4 +20,4 @@ spec:
   tls:
     - hosts:
         - ilman.io
-      secretName: cover
+      secretName: ilman-io
