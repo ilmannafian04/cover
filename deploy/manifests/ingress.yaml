@@ -1,0 +1,21 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cover
+spec:
+  rules:
+    - host: ilman.io
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: cover
+                port:
+                  name: http
+  tls:
+    - hosts:
+        - ilman.io
+      secretName: ilman-io

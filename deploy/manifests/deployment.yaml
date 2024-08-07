@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cover
+spec:
+  template:
+    spec:
+      containers:
+        - name: cover
+          image: ilmannafian/cover:0.0.3
+          resources:
+            limits:
+              memory: "50Mi"
+              cpu: "50m"
+          ports:
+            - name: http
+              containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /ping
+              port: http
+            periodSeconds: 5
