@@ -3,6 +3,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: cover
+  annotations:
+    kubernetes.io/tls-acme: "true"
 spec:
   rules:
     - host: ilman.io
@@ -18,4 +20,4 @@ spec:
   tls:
     - hosts:
         - ilman.io
-      secretName: ilman-io
+      secretName: cover
